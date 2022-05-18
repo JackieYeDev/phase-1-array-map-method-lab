@@ -12,5 +12,18 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(function(tutorial) {
+    // Splits the sentence by spaces and capitalizes each word
+    const modifiedWords = tutorial.split(' ').map(function (word) { 
+        return word = word[0].toUpperCase() + word.substring(1, word.length)
+    })
+
+    // Recombines all the modified words back into a sentencee
+    let endIndex = modifiedWords.length
+    tutorial = modifiedWords[0]
+    for(let i = 1; i < endIndex; i++ ) {
+      tutorial = tutorial + " " + modifiedWords[i]
+    }
+    return tutorial
+  })
 }
